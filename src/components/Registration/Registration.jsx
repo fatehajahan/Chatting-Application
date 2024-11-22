@@ -8,9 +8,34 @@ const Registration = () => {
         setEmail(e.target.value);
         setEmailErr("")
     }
+
+    const [fullName, setFullName] = useState("")
+    const [fullNameErr, setFullNameErr] = useState("")
+    const handleFullName = (e) => {
+        setFullName(e.target.value);
+        setFullNameErr("")
+    }
+
+    const [pass, setPass] = useState("")
+    const [passErr, setPassErr] = useState("")
+    const handlePass = (e) => {
+        setPass(e.target.value)
+        setPassErr("")
+    }
+
     const handleSubmit = () => {
-        if(!email){
+        if (!email) {
             setEmailErr('Please give Your Email Id');
+        } else {
+            if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+                setEmailErr('Please Give a Valid Email Id')
+            }
+        }
+        if (!fullName) {
+            setFullNameErr('Please Give Your Name')
+        }
+        if(!pass){
+            setPassErr('Please Give a PASSWORD')
         }
     }
 
@@ -47,9 +72,11 @@ const Registration = () => {
                                 </label>
                                 <input
                                     type="text"
+                                    onChange={handleFullName}
                                     placeholder='Fateha Jahan'
                                     className='block py-[26px] px-[45px] placeholder-[#11175D] w-[368px] border-2 border-[rgb(17,23,93,0.5)] rounded-md '
                                 />
+                                <p className='text-red-500 absolute font-nuni font-medium'>{fullNameErr}</p>
                             </div>
                         </div>
 
@@ -61,9 +88,11 @@ const Registration = () => {
                                 </label>
                                 <input
                                     type="password"
+                                    onChange={handlePass}
                                     placeholder='. . . .'
                                     className='block py-[26px] px-[45px] placeholder-[#11175D] w-[368px] border-2 border-[rgb(17,23,93,0.5)] rounded-md '
                                 />
+                                <p className='text-red-500 absolute font-nuni font-medium'>{passErr}</p>
                             </div>
                         </div>
                     </form>
