@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 import reg from '../../assets/registration.png'
 
 const Registration = () => {
@@ -18,10 +20,15 @@ const Registration = () => {
 
     const [pass, setPass] = useState("")
     const [passErr, setPassErr] = useState("")
+
     const handlePass = (e) => {
         setPass(e.target.value)
         setPassErr("")
     }
+
+
+    const [showPass, setShowPass] = useState(false)
+
 
     const handleSubmit = () => {
         if (!email) {
@@ -34,29 +41,33 @@ const Registration = () => {
         if (!fullName) {
             setFullNameErr('Please Give Your Name')
         }
-        if(!pass){
+        if (!pass) {
             setPassErr('Please Give a PASSWORD')
+        } else {
+            if (!/^(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$/.test(pass)) {
+                setPassErr('Password must be at least 6 characters long and include a special character.')
+            }
         }
     }
 
     return (
         <div>
-            <div className="flex justify-between">
-                <div className="leftSection w-1/2 pt-[110px] pl-[190px]">
-                    <h1 className='font-nuni text-[#11175D] font-bold text-[34px] '>Get started with easily register</h1>
-                    <p className=' font-nuni text-[rgb(0,0,0,0.5)] font-normal text-[20px] pt-[13px] '>Free register and you can enjoy it</p>
+            <div className="md:flex justify-between">
+                <div className="leftSection md:pt-[110px] md:pl-[190px]">
+                    <h1 className='font-nuni text-[#11175D] font-bold md:text-[34px] text-[29px] md:text-left text-center md:pt-0 pt-[25px] '>Get started with easily register</h1>
+                    <p className=' font-nuni text-[rgb(0,0,0,0.5)] font-normal text-[20px] pt-[13px] md:text-left text-center '>Free register and you can enjoy it</p>
 
-                    <form className="inputs relative pt-[40px]">
+                    <form className="inputs relative pt-[40px] flex flex-col justify-center items-center md:items-start ">
 
                         {/* Email */}
-                        <div className="mail relative">
+                        <div className="mail relative w-[368px]">
                             <label htmlFor=""
                                 className="font-nuni bg-white absolute px-[20px] text-[14px] left-[53px] top-[-7px] transition-all">Mail Address
                             </label>
                             <input type="email"
                                 onChange={handleEmail}
                                 placeholder='fatehajahan2002@gmail.com'
-                                className='block py-[26px] px-[45px] placeholder-[#11175D] w-[368px] border-2 border-[rgb(17,23,93,0.5)] rounded-md '
+                                className='block py-[26px] px-[45px] placeholder-[#11175D] mx-auto md:w-full w-[330px]  border-2 border-[rgb(17,23,93,0.5)] rounded-md '
                             />
 
                             <p className='text-red-500 absolute font-nuni font-medium'>{emailErr}</p>
@@ -64,7 +75,7 @@ const Registration = () => {
 
 
                         {/* Name */}
-                        <div className='mt-[30px]'>
+                        <div className='mt-[30px] w-[368px]'>
                             <div className="name pt-[34px] relative">
 
                                 <label htmlFor=""
@@ -74,7 +85,7 @@ const Registration = () => {
                                     type="text"
                                     onChange={handleFullName}
                                     placeholder='Fateha Jahan'
-                                    className='block py-[26px] px-[45px] placeholder-[#11175D] w-[368px] border-2 border-[rgb(17,23,93,0.5)] rounded-md '
+                                    className='block py-[26px] px-[45px] placeholder-[#11175D] w-[330px] md:w-full mx-auto border-2 border-[rgb(17,23,93,0.5)] rounded-md '
                                 />
                                 <p className='text-red-500 absolute font-nuni font-medium'>{fullNameErr}</p>
                             </div>
@@ -82,15 +93,26 @@ const Registration = () => {
 
 
                         {/* Password */}
-                        <div className='mt-[30px]'>
+                        <div className='mt-[30px] w-[368px]'>
                             <div className="password pt-[34px] relative">
+                                {
+                                    showPass
+                                        ? <FaEyeSlash
+                                            onClick={() => setShowPass(!showPass)}
+                                            className='absolute md:right-[25px] right-[40px] top-[54%] text-[18px] cursor-pointer'
+                                        />
+                                        : <FaEye
+                                            onClick={() => setShowPass(!showPass)}
+                                            className='absolute md:right-[25px] right-[40px] top-[54%] text-[18px] cursor-pointer'
+                                        />
+                                }
                                 <label htmlFor="" className="font-nuni bg-white absolute px-[20px] text-[14px] left-[53px] top-[25px] transition-all">Password
                                 </label>
                                 <input
-                                    type="password"
+                                    type={`${showPass ? "text" : "password"}`}
                                     onChange={handlePass}
                                     placeholder='. . . .'
-                                    className='block py-[26px] px-[45px] placeholder-[#11175D] w-[368px] border-2 border-[rgb(17,23,93,0.5)] rounded-md '
+                                    className='block py-[26px] px-[45px] placeholder-[#11175D]  mx-auto md:w-full w-[330px] border-2 border-[rgb(17,23,93,0.5)] rounded-md '
                                 />
                                 <p className='text-red-500 absolute font-nuni font-medium'>{passErr}</p>
                             </div>
@@ -108,7 +130,7 @@ const Registration = () => {
 
                 </div>
                 <div className="rightSection w-1/2">
-                    <img src={reg} alt="" className='w-full h-screen object-cover' />
+                    <img src={reg} alt="" className='w-full h-screen object-cover md:block hidden' />
                 </div>
             </div>
         </div>
