@@ -52,8 +52,8 @@ const Registration = () => {
 
     return (
         <div>
-            <div className="md:flex justify-between">
-                <div className="leftSection md:pt-[110px] md:pl-[190px]">
+            <div className="md:flex justify-between items-center">
+                <div className="leftSection md:pl-[190px]">
                     <h1 className='font-nuni text-[#11175D] font-bold md:text-[34px] text-[29px] md:text-left text-center md:pt-0 pt-[25px] '>Get started with easily register</h1>
                     <p className=' font-nuni text-[rgb(0,0,0,0.5)] font-normal text-[20px] pt-[13px] md:text-left text-center '>Free register and you can enjoy it</p>
 
@@ -73,7 +73,6 @@ const Registration = () => {
                             <p className='text-red-500 absolute font-nuni font-medium'>{emailErr}</p>
                         </div>
 
-
                         {/* Name */}
                         <div className='mt-[30px] w-[368px]'>
                             <div className="name pt-[34px] relative">
@@ -90,7 +89,6 @@ const Registration = () => {
                                 <p className='text-red-500 absolute font-nuni font-medium'>{fullNameErr}</p>
                             </div>
                         </div>
-
 
                         {/* Password */}
                         <div className='mt-[30px] w-[368px]'>
@@ -119,7 +117,7 @@ const Registration = () => {
                         </div>
                     </form>
 
-                    <div className="btn mt-[60px] text-center w-[368px] md:ml-0 ml-[10px] ">
+                    <div className="btn mt-[60px] text-center w-[368px] md:ml-0  ">
                         <div
                             onClick={handleSubmit}
                             className='py-[20px] bg-[#5F35F5] text-white font-bold transition duration-300 rounded-full md:w-full w-[320px] mx-auto hover:bg-[#11175D] hover:text-white cursor-pointer'>Sign up
@@ -127,7 +125,6 @@ const Registration = () => {
 
                         <a href="#" className=' block md:pt-[50px] pt-[30px]  font-open text-[#03014C] '>Already  have an account ? <span className='text-[#EA6C00] font-bold'>Sign In</span></a>
                     </div>
-
                 </div>
                 <div className="rightSection w-1/2">
                     <img src={reg} alt="" className='w-full h-screen object-cover md:block hidden' />
