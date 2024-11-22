@@ -57,7 +57,7 @@ const Registration = () => {
                     <h1 className='font-nuni text-[#11175D] font-bold md:text-[34px] text-[29px] md:text-left text-center md:pt-0 pt-[25px] '>Get started with easily register</h1>
                     <p className=' font-nuni text-[rgb(0,0,0,0.5)] font-normal text-[20px] pt-[13px] md:text-left text-center '>Free register and you can enjoy it</p>
 
-                    <form className="inputs relative pt-[40px] flex flex-col justify-center items-center md:items-start ">
+                    <div className="inputs relative pt-[40px] flex flex-col justify-center items-center md:items-start ">
 
                         {/* Email */}
                         <div className="mail relative w-[368px]">
@@ -115,7 +115,7 @@ const Registration = () => {
                                 <p className='text-red-500 absolute font-nuni font-medium'>{passErr}</p>
                             </div>
                         </div>
-                    </form>
+                    </div>
 
                     <div className="btn mt-[60px] text-center md:w-[368px] md:ml-0  ">
                         <div
