@@ -2,21 +2,17 @@ import React, { useState } from 'react'
 import reg from '../../assets/registration.png'
 
 const Registration = () => {
-    const [up, setUp] = useState({
-        email: false,
-        name: false,
-        password: false,
-    });
-    const [values, setValues] = useState({
-        email: "",
-        name: "",
-        password: "",
-    });
-
-    const handleInputChange = (e) => {
-        const { id, value } = e.target;
-        setValues({ ...values, [id]: value });
-    };
+    const [email, setEmail] = useState("")
+    const [emailErr, setEmailErr] = useState("")
+    const handleEmail = (e) => {
+        setEmail(e.target.value);
+        setEmailErr("")
+    }
+    const handleSubmit = () => {
+        if(!email){
+            setEmailErr('Please give Your Email Id');
+        }
+    }
 
     return (
         <div>
@@ -26,74 +22,57 @@ const Registration = () => {
                     <p className=' font-nuni text-[rgb(0,0,0,0.5)] font-normal text-[20px] pt-[13px] '>Free register and you can enjoy it</p>
 
                     <form className="inputs relative pt-[40px]">
-                        <div className="mail relative">
-                            {/* Email */}
-                            <input type="email"
-                                placeholder=' '
-                                id="email"
-                                value={values.email}
-                                onChange={handleInputChange}
-                                className='block py-[26px] px-[45px] placeholder-[#11175D] w-[368px] border-2 border-[rgb(17,23,93,0.5)] rounded-md '
-                                onFocus={() => setUp({ ...up, email: true })}
-                                onBlur={() => setUp({ ...up, email: false })} />
 
-                            <label htmlFor="mail" className={`font-nuni bg-white absolute px-[20px] text-[14px] left-[53px] transition-all 
-                                ${up.email || values.email
-                                    ? 'text-[14px] -top-[10px] transform scale-90'
-                                    : 'top-[30px] text-[14px]'
-                                }`}>Mail Address
+                        {/* Email */}
+                        <div className="mail relative">
+                            <label htmlFor=""
+                                className="font-nuni bg-white absolute px-[20px] text-[14px] left-[53px] top-[-7px] transition-all">Mail Address
                             </label>
+                            <input type="email"
+                                onChange={handleEmail}
+                                placeholder='fatehajahan2002@gmail.com'
+                                className='block py-[26px] px-[45px] placeholder-[#11175D] w-[368px] border-2 border-[rgb(17,23,93,0.5)] rounded-md '
+                            />
+
+                            <p className='text-red-500 absolute font-nuni font-medium'>{emailErr}</p>
                         </div>
 
 
-
                         {/* Name */}
-                        <div className="name pt-[34px] relative">
+                        <div className='mt-[30px]'>
+                            <div className="name pt-[34px] relative">
 
-                            <input
-                                type="name"
-                                placeholder=' '
-                                id="name"
-                                value={values.name}
-                                onChange={handleInputChange}
-                                onFocus={() => setUp({ ...up, name: true })}
-                                onBlur={() => setUp({ ...up, name: false })}
-                                className='  block py-[26px] px-[45px] placeholder-[#11175D] w-[368px] border-2 border-[rgb(17,23,93,0.5)] rounded-md '
-                            />
-
-                            <label htmlFor="" className={` font-nuni bg-white absolute px-[20px] text-[14px] left-[53px] transition-all 
-                               ${up.name || values.name
-                                    ? 'text-[14px] top-[25px] transform scale-90 font-nuni '
-                                    : 'top-[60px] text-[14px]'
-                                }`}>Full name
-                            </label>
+                                <label htmlFor=""
+                                    className="font-nuni bg-white absolute px-[20px] text-[14px] left-[53px] top-[25px] transition-all">Full name
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder='Fateha Jahan'
+                                    className='block py-[26px] px-[45px] placeholder-[#11175D] w-[368px] border-2 border-[rgb(17,23,93,0.5)] rounded-md '
+                                />
+                            </div>
                         </div>
 
 
                         {/* Password */}
-                        <div className="password pt-[34px] relative">
-                            <input
-                                type="password"
-                                placeholder=' '
-                                id="password"
-                                value={values.password}
-                                onChange={handleInputChange}
-                                onFocus={() => setUp({ ...up, password: true })}
-                                onBlur={() => setUp({ ...up, password: false })}
-                                className='  block py-[26px] px-[45px] placeholder-[#11175D] w-[368px] border-2 border-[rgb(17,23,93,0.5)] rounded-md '
-                            />
-
-                            <label htmlFor="" className={` font-nuni bg-white absolute px-[20px] text-[14px] left-[53px] transition-all 
-                               ${up.password || values.password
-                                    ? 'text-[14px] top-[25px] transform scale-90 font-nuni '
-                                    : 'top-[62px] text-[14px]'
-                                }`}>Password
-                            </label>
+                        <div className='mt-[30px]'>
+                            <div className="password pt-[34px] relative">
+                                <label htmlFor="" className="font-nuni bg-white absolute px-[20px] text-[14px] left-[53px] top-[25px] transition-all">Password
+                                </label>
+                                <input
+                                    type="password"
+                                    placeholder='. . . .'
+                                    className='block py-[26px] px-[45px] placeholder-[#11175D] w-[368px] border-2 border-[rgb(17,23,93,0.5)] rounded-md '
+                                />
+                            </div>
                         </div>
                     </form>
 
                     <div className="btn mt-[60px]">
-                        <a href="#" className='py-[20px] px-[145px] bg-[#5F35F5] text-white font-bold transition duration-300 rounded-full w-[368px] hover:bg-[#11175D] hover:text-white '>Sign up</a>
+                        <div
+                            onClick={handleSubmit}
+                            href="#" className='py-[20px] px-[145px] bg-[#5F35F5] text-white font-bold transition duration-300 rounded-full w-[368px] hover:bg-[#11175D] hover:text-white cursor-pointer '>Sign up
+                        </div>
 
                         <a href="#" className=' block pt-[50px] pl-[40px] font-open text-[#03014C] '>Already  have an account ? <span className='text-[#EA6C00] font-bold'>Sign In</span></a>
                     </div>
