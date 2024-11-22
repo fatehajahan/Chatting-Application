@@ -117,7 +117,7 @@ const Registration = () => {
                         </div>
                     </form>
 
-                    <div className="btn mt-[60px] text-center w-[368px] md:ml-0  ">
+                    <div className="btn mt-[60px] text-center md:w-[368px] md:ml-0  ">
                         <div
                             onClick={handleSubmit}
                             className='py-[20px] bg-[#5F35F5] text-white font-bold transition duration-300 rounded-full md:w-full w-[320px] mx-auto hover:bg-[#11175D] hover:text-white cursor-pointer'>Sign up
