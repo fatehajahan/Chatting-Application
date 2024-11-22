@@ -112,20 +112,20 @@ const Registration = () => {
                                     type={`${showPass ? "text" : "password"}`}
                                     onChange={handlePass}
                                     placeholder='. . . .'
-                                    className='block py-[26px] px-[45px] placeholder-[#11175D]  mx-auto md:w-full w-[330px] border-2 border-[rgb(17,23,93,0.5)] rounded-md '
+                                    className='block py-[26px] px-[45px] placeholder-[#11175D] mx-auto md:w-full w-[330px] border-2 border-[rgb(17,23,93,0.5)] rounded-md '
                                 />
                                 <p className='text-red-500 absolute font-nuni font-medium'>{passErr}</p>
                             </div>
                         </div>
                     </form>
 
-                    <div className="btn mt-[60px]">
+                    <div className="btn mt-[60px] text-center w-[368px] md:ml-0 ml-[10px] ">
                         <div
                             onClick={handleSubmit}
-                            href="#" className='py-[20px] px-[145px] bg-[#5F35F5] text-white font-bold transition duration-300 rounded-full w-[368px] hover:bg-[#11175D] hover:text-white cursor-pointer '>Sign up
+                            className='py-[20px] bg-[#5F35F5] text-white font-bold transition duration-300 rounded-full md:w-full w-[320px] mx-auto hover:bg-[#11175D] hover:text-white cursor-pointer'>Sign up
                         </div>
 
-                        <a href="#" className=' block pt-[50px] pl-[40px] font-open text-[#03014C] '>Already  have an account ? <span className='text-[#EA6C00] font-bold'>Sign In</span></a>
+                        <a href="#" className=' block md:pt-[50px] pt-[30px]  font-open text-[#03014C] '>Already  have an account ? <span className='text-[#EA6C00] font-bold'>Sign In</span></a>
                     </div>
 
                 </div>
