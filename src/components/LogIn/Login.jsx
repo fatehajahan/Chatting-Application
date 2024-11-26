@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FcGoogle } from "react-icons/fc";
 import { FaEye } from "react-icons/fa";
 import login from '../../assets/login.png'
+import { Link } from 'react-router-dom';
 
 const Login = () => {
+  
+
+
   return (
     <div>
       <div className="flex items-center ">
@@ -30,16 +34,21 @@ const Login = () => {
                 Password
               </label>
               <div className='flex items-center relative'>
-                <input type="email" placeholder='Enter your password' className='py-[16px] w-[370px] border-[rgb(3,1,76,0.3)] border-b-[3px] block focus:border-[#03014C] focus:outline-none placeholder:text-[#03014C] placeholder:font-open placeholder:font-semibold  ' />
+                <input 
+                
+                type="email" 
+                placeholder='Enter your password' 
+                className='py-[16px] w-[370px] border-[rgb(3,1,76,0.3)] border-b-[3px] block focus:border-[#03014C] focus:outline-none placeholder:text-[#03014C] placeholder:font-open placeholder:font-semibold  ' />
                 <FaEye className='absolute top-[20px] right-[0px] cursor-pointer text-[26px] ' />
               </div>
             </div>
           </div>
 
           <div className="btns">
-            <p className=' cursor-pointer py-[26px] w-[370px] text-center mt-[55px] bg-[#5F34F5] font-open text-[20px] font-semibold  text-white rounded-[8px] '>Login to Continue</p>
+            <p  
+            className=' cursor-pointer py-[26px] w-[370px] text-center mt-[55px] bg-[#5F34F5] font-open text-[20px] font-semibold  text-white rounded-[8px] '>Login to Continue</p>
 
-            <p className='font-open font-normal text-[13px] text-[#03014C] pt-[44px]'>Don’t have an account ? <span className='font-bold text-[#EA6C00] cursor-pointer'>Sign up</span></p>
+            <Link to="/registration" className='font-open font-normal text-[13px] text-[#03014C] pt-[44px]'>Don’t have an account ? <span className='font-bold text-[#EA6C00] cursor-pointer'>Sign up</span></Link>
           </div>
 
         </div>

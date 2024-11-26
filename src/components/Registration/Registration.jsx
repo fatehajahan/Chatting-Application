@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import reg from '../../assets/registration.png'
+import { Link } from 'react-router-dom';
 
 const Registration = () => {
     const [email, setEmail] = useState("")
@@ -20,6 +21,7 @@ const Registration = () => {
 
     const [pass, setPass] = useState("")
     const [passErr, setPassErr] = useState("")
+    const [showPass, setShowPass] = useState(false)
 
     const handlePass = (e) => {
         setPass(e.target.value)
@@ -27,7 +29,6 @@ const Registration = () => {
     }
 
 
-    const [showPass, setShowPass] = useState(false)
 
 
     const handleSubmit = () => {
@@ -62,7 +63,7 @@ const Registration = () => {
                         {/* Email */}
                         <div className="mail relative w-[368px]">
                             <label htmlFor=""
-                                className="font-nuni bg-white absolute px-[20px] text-[14px] left-[53px] top-[-7px] transition-all">Mail Address
+                                className="font-nuni bg-white absolute px-[20px] text-[14px] left-[53px] top-[-7px]">Mail Address
                             </label>
                             <input type="email"
                                 onChange={handleEmail}
@@ -104,7 +105,8 @@ const Registration = () => {
                                             className='absolute md:right-[25px] right-[40px] top-[54%] text-[18px] cursor-pointer'
                                         />
                                 }
-                                <label htmlFor="" className="font-nuni bg-white absolute px-[20px] text-[14px] left-[53px] top-[25px] transition-all">Password
+                                <label htmlFor="" className="font-nuni bg-white absolute px-[20px] text-[14px] left-[53px] top-[25px] transition-all">
+                                    Password
                                 </label>
                                 <input
                                     type={`${showPass ? "text" : "password"}`}
@@ -123,7 +125,7 @@ const Registration = () => {
                             className='py-[20px] bg-[#5F35F5] text-white font-bold transition duration-300 rounded-full md:w-full w-[320px] mx-auto hover:bg-[#11175D] hover:text-white cursor-pointer'>Sign up
                         </div>
 
-                        <a href="#" className=' block md:pt-[50px] pt-[30px]  font-open text-[#03014C] '>Already  have an account ? <span className='text-[#EA6C00] font-bold'>Sign In</span></a>
+                        <Link to="/login" className=' block md:pt-[50px] pt-[30px]  font-open text-[#03014C] '>Already  have an account ? <span className='text-[#EA6C00] font-bold'>Sign In</span></Link>
                     </div>
                 </div>
                 <div className="rightSection w-1/2">
