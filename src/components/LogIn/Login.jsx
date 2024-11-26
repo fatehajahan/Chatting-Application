@@ -1,12 +1,36 @@
 import React, { useState } from 'react'
 import { FcGoogle } from "react-icons/fc";
 import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 import login from '../../assets/login.png'
 import { Link } from 'react-router-dom';
 
 const Login = () => {
-  
+  const [logemail, setLogemail] = useState('')
+  const [logemailErr, setLogemailErr] = useState('')
 
+  const logEmail = (e) => {
+    setLogemail(e.target.value);
+    setLogemailErr('')
+  }
+
+  const [logpass, setLogpass] = useState('')
+  const [logpasserr, setLogpassErr] = useState('')
+  const [logshowpass, setLogshowpass] = useState(false)
+
+  const logPass = (e) => {
+    setLogpass(e.target.value)
+    setLogpassErr('')
+  }
+
+  const logIn = () => {
+    if (!logemail) {
+      setLogemailErr('Please give your email ID')
+    }
+    if (!logpass) {
+      setLogpassErr('Please Enter Your password')
+    }
+  }
 
   return (
     <div>
@@ -22,31 +46,46 @@ const Login = () => {
           </div>
 
           <div className="inputs ">
-            <div className="email pt-[32px]">
+            <div className="email relative pt-[32px]">
               <label htmlFor="" className='font-open font-normal text-[13px] text-[rgb(3,1,76,0.6)] '>
                 Email Addres
               </label>
-              <input type="email" placeholder='Youraddres@email.com' className='py-[16px] w-[370px] border-[rgb(3,1,76,0.3)] border-b-[3px] block focus:border-[#03014C] focus:outline-none placeholder:text-[#03014C] placeholder:font-open placeholder:font-semibold ' />
+              <input
+                onChange={logEmail}
+                type="email"
+                placeholder='Youraddres@email.com'
+                className='py-[16px] w-[370px] border-[rgb(3,1,76,0.3)] border-b-[3px] block focus:border-[#03014C] focus:outline-none placeholder:text-[#03014C] placeholder:font-open placeholder:font-semibold ' />
+              <p className='text-red-500 absolute font-nuni font-medium'>{logemailErr}</p>
             </div>
 
-            <div className="password pt-[60px]">
+            <div className="password relative mt-[60px]">
+              {
+                logshowpass
+                  ? <FaEyeSlash
+                    onClick={() => setLogshowpass(!logshowpass)}
+                    className='absolute md:right-[25px] right-[40px] top-[54%] text-[18px] cursor-pointer'
+                  />
+                  : <FaEye
+                    onClick={() => setLogshowpass(!logshowpass)}
+                    className='absolute md:right-[25px] right-[40px] top-[54%] text-[18px] cursor-pointer'
+                  />
+              }
               <label htmlFor="" className='font-open font-normal text-[13px] text-[rgb(3,1,76,0.6)] '>
                 Password
               </label>
-              <div className='flex items-center relative'>
-                <input 
-                
-                type="email" 
-                placeholder='Enter your password' 
-                className='py-[16px] w-[370px] border-[rgb(3,1,76,0.3)] border-b-[3px] block focus:border-[#03014C] focus:outline-none placeholder:text-[#03014C] placeholder:font-open placeholder:font-semibold  ' />
-                <FaEye className='absolute top-[20px] right-[0px] cursor-pointer text-[26px] ' />
-              </div>
+                <input
+                  onChange={logPass}
+                  type={`${logshowpass ? "text" : "password"}`}
+                  placeholder='Enter your password'
+                  className='py-[16px] w-[370px] border-[rgb(3,1,76,0.3)] border-b-[3px] block focus:border-[#03014C] focus:outline-none placeholder:text-[#03014C] placeholder:font-open placeholder:font-semibold bg-transparent ' />
+              <p className='text-red-500 absolute font-nuni font-medium' >{logpasserr}</p>
             </div>
           </div>
 
           <div className="btns">
-            <p  
-            className=' cursor-pointer py-[26px] w-[370px] text-center mt-[55px] bg-[#5F34F5] font-open text-[20px] font-semibold  text-white rounded-[8px] '>Login to Continue</p>
+            <p
+              onClick={logIn}
+              className=' cursor-pointer py-[26px] w-[370px] text-center mt-[55px] bg-[#5F34F5] font-open text-[20px] font-semibold  text-white rounded-[8px] '>Login to Continue</p>
 
             <Link to="/registration" className='font-open font-normal text-[13px] text-[#03014C] pt-[44px]'>Don’t have an account ? <span className='font-bold text-[#EA6C00] cursor-pointer'>Sign up</span></Link>
           </div>
