@@ -55,10 +55,10 @@ const Registration = () => {
         <div>
             <div className="md:flex justify-between items-center">
                 <div className="leftSection md:pl-[190px]">
-                    <h1 className='font-nuni text-[#11175D] font-bold md:text-[34px] text-[29px] md:text-left text-center md:pt-0 pt-[25px] '>Get started with easily register</h1>
-                    <p className=' font-nuni text-[rgb(0,0,0,0.5)] font-normal text-[20px] pt-[13px] md:text-left text-center '>Free register and you can enjoy it</p>
+                    <h1 className='font-nuni text-[#11175D] font-bold md:text-[34px] text-[29px] md:text-left text-center md:pt-0 pt-[20px] '>Get started with easily register</h1>
+                    <p className=' font-nuni text-[rgb(0,0,0,0.5)] font-normal text-[20px] md:pt-[13px] pt-[8px] md:text-left text-center '>Free register and you can enjoy it</p>
 
-                    <div className="inputs relative pt-[40px] flex flex-col justify-center items-center md:items-start ">
+                    <div className="inputs relative md:pt-[40px] pt-[20px] flex flex-col justify-center items-center md:items-start ">
 
                         {/* Email */}
                         <div className="mail relative w-[368px]">
@@ -68,14 +68,14 @@ const Registration = () => {
                             <input type="email"
                                 onChange={handleEmail}
                                 placeholder='fatehajahan2002@gmail.com'
-                                className='block py-[26px] px-[45px] placeholder-[#11175D] mx-auto md:w-full w-[330px]  border-2 border-[rgb(17,23,93,0.5)] rounded-md '
+                                className='block md:py-[26px] py-[18px] px-[30px] md:px-[45px] placeholder-[#11175D] mx-auto md:w-full w-[300px]  border-2 border-[rgb(17,23,93,0.5)] rounded-md '
                             />
 
                             <p className='text-red-500 absolute font-nuni font-medium'>{emailErr}</p>
                         </div>
 
                         {/* Name */}
-                        <div className='mt-[30px] w-[368px]'>
+                        <div className='md:mt-[30px] mt-[10px] w-[368px]'>
                             <div className="name pt-[34px] relative">
 
                                 <label htmlFor=""
@@ -85,24 +85,24 @@ const Registration = () => {
                                     type="text"
                                     onChange={handleFullName}
                                     placeholder='Fateha Jahan'
-                                    className='block py-[26px] px-[45px] placeholder-[#11175D] w-[330px] md:w-full mx-auto border-2 border-[rgb(17,23,93,0.5)] rounded-md '
+                                    className='block md:py-[26px] py-[18px] px-[30px] md:px-[45px] placeholder-[#11175D] w-[300px] md:w-full mx-auto border-2 border-[rgb(17,23,93,0.5)] rounded-md '
                                 />
                                 <p className='text-red-500 absolute font-nuni font-medium'>{fullNameErr}</p>
                             </div>
                         </div>
 
                         {/* Password */}
-                        <div className='mt-[30px] w-[368px]'>
+                        <div className='md:mt-[30px] mt-[10px] w-[368px]'>
                             <div className="password pt-[34px] relative">
                                 {
                                     showPass
                                         ? <FaEyeSlash
                                             onClick={() => setShowPass(!showPass)}
-                                            className='absolute md:right-[25px] right-[40px] top-[54%] text-[18px] cursor-pointer'
+                                            className='absolute md:right-[25px] right-[55px] md:top-[66px] text-[18px] cursor-pointer'
                                         />
                                         : <FaEye
                                             onClick={() => setShowPass(!showPass)}
-                                            className='absolute md:right-[25px] right-[40px] top-[54%] text-[18px] cursor-pointer'
+                                            className='absolute md:right-[25px] right-[55px] md:top-[66px] text-[18px] cursor-pointer'
                                         />
                                 }
                                 <label htmlFor="" className="font-nuni bg-white absolute px-[20px] text-[14px] left-[53px] top-[25px] transition-all">
@@ -112,7 +112,7 @@ const Registration = () => {
                                     type={`${showPass ? "text" : "password"}`}
                                     onChange={handlePass}
                                     placeholder='. . . .'
-                                    className='block py-[26px] px-[45px] placeholder-[#11175D] mx-auto md:w-full w-[330px] border-2 border-[rgb(17,23,93,0.5)] rounded-md '
+                                    className='block md:py-[26px] py-[18px] px-[30px] md:px-[45px] placeholder-[#11175D] mx-auto md:w-full w-[300px] border-2 border-[rgb(17,23,93,0.5)] rounded-md '
                                 />
                                 <p className='text-red-500 absolute font-nuni font-medium'>{passErr}</p>
                             </div>

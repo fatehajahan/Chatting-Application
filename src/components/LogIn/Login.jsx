@@ -37,16 +37,16 @@ const Login = () => {
       <div className="md:flex items-center ">
         <div className="md:w-1/2 md:pt-0 pt-[30px] flex flex-col items-center">
           <div className='title'>
-            <h1 className='font-open text-[33px] text-[#03014C] font-bold pb-[29px]'>Login to your account!</h1>
+            <h1 className='font-open md:text-[33px] text-[25px] text-[#03014C] font-bold pb-[29px]'>Login to your account!</h1>
 
-            <div className='flex items-center border-2 border-[rgb(3,1,76,0.5)] w-[220px] py-[23px] justify-center rounded-md gap-x-[10px] cursor-pointer mx-auto'>
-              <FcGoogle className='text-[30px]' />
-              <p className='text-[13px] font-open font-semibold text-[#03014C]'>Login with Google</p>
+            <div className='flex items-center border-2 border-[rgb(3,1,76,0.5)] md:w-[220px] w-[170px] md:py-[23px] py-[18px] justify-center rounded-md gap-x-[10px] cursor-pointer md:mx-0 mx-auto'>
+              <FcGoogle className='md:text-[30px] text-[20px]' />
+              <p className='md:text-[13px] text-[10px] font-open font-semibold text-[#03014C]'>Login with Google</p>
             </div>
           </div>
 
           <div className="inputs ">
-            <div className="email md:w-[370px] w-[330px] mx-auto relative pt-[32px]">
+            <div className="email md:w-[370px] w-[295px] mx-auto relative pt-[32px]">
               <label htmlFor="" className='font-open font-normal text-[13px] text-[rgb(3,1,76,0.6)] '>
                 Email Addres
               </label>
@@ -58,40 +58,39 @@ const Login = () => {
               <p className='text-red-500 absolute font-nuni font-medium'>{logemailErr}</p>
             </div>
 
-            <div className="password md:w-[370px] w-[330px] mx-auto relative mt-[60px]">
+            <div className="password md:w-[370px] w-[295px] mx-auto relative mt-[60px]">
               {
                 logshowpass
                   ? <FaEyeSlash
                     onClick={() => setLogshowpass(!logshowpass)}
-                    className='absolute md:right-[25px] right-[15px] top-[54%] text-[18px] cursor-pointer'
+                    className='absolute md:right-[10px] right-[15px] top-[54%] text-[18px] cursor-pointer'
                   />
                   : <FaEye
                     onClick={() => setLogshowpass(!logshowpass)}
-                    className='absolute md:right-[25px] right-[15px] top-[54%] text-[18px] cursor-pointer'
+                    className='absolute md:right-[10px] right-[15px] top-[54%] text-[18px] cursor-pointer'
                   />
               }
               <label htmlFor="" className='font-open font-normal text-[13px] text-[rgb(3,1,76,0.6)] '>
                 Password
               </label>
-                <input
-                  onChange={logPass}
-                  type={`${logshowpass ? "text" : "password"}`}
-                  placeholder='Enter your password'
-                  className='py-[16px] w-full border-[rgb(3,1,76,0.3)] border-b-[3px] block focus:border-[#03014C] focus:outline-none placeholder:text-[#03014C] placeholder:font-open placeholder:font-semibold bg-transparent ' />
+              <input
+                onChange={logPass}
+                type={`${logshowpass ? "text" : "password"}`}
+                placeholder='Enter your password'
+                className='py-[16px] w-full border-[rgb(3,1,76,0.3)] border-b-[3px] block focus:border-[#03014C] focus:outline-none placeholder:text-[#03014C] placeholder:font-open placeholder:font-semibold bg-transparent ' />
               <p className='text-red-500 absolute font-nuni font-medium' >{logpasserr}</p>
             </div>
           </div>
 
-          <div className="btns md:w-[370px] w-[330px] mx-auto">
+          <div className="btns md:w-[370px] w-[295px] mx-auto">
             <p
               onClick={logIn}
-              className=' cursor-pointer py-[26px] w-full text-center mt-[55px] bg-[#5F34F5] font-open text-[20px] font-semibold  text-white rounded-[8px] md:mb-[44px] mb-[30px] '>Login to Continue</p>
+              className=' cursor-pointer md:py-[26px] py-[18px] w-full text-center mt-[55px] bg-[#5F34F5] font-open text-[20px] font-semibold  text-white rounded-[8px] md:mb-[44px] mb-[30px] '>Login to Continue
+            </p>
 
-            <Link to="/registration" className='font-open font-normal text-[13px] text-[#03014C]'>Don’t have an account ? <span className='font-bold text-[#EA6C00] cursor-pointer'>Sign up</span></Link>
+            <Link to="/registration" className='font-open font-normal text-[13px] text-[#03014C] mt-[20px]'>Don’t have an account ? <span className='font-bold text-[#EA6C00] cursor-pointer'>Sign up</span></Link>
           </div>
-
         </div>
-
 
         <div className="md:w-1/2">
           <img src={login} alt="" className='w-full md:block hidden h-screen object-cover' />
