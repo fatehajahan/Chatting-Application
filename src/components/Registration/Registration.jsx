@@ -98,11 +98,11 @@ const Registration = () => {
                                     showPass
                                         ? <FaEyeSlash
                                             onClick={() => setShowPass(!showPass)}
-                                            className='absolute md:right-[25px] right-[55px] md:top-[66px] text-[18px] cursor-pointer'
+                                            className='absolute md:right-[25px] right-[55px] md:top-[66px] top-[55px] text-[18px] cursor-pointer'
                                         />
                                         : <FaEye
                                             onClick={() => setShowPass(!showPass)}
-                                            className='absolute md:right-[25px] right-[55px] md:top-[66px] text-[18px] cursor-pointer'
+                                            className='absolute md:right-[25px] right-[55px] md:top-[66px] top-[55px] text-[18px] cursor-pointer'
                                         />
                                 }
                                 <label htmlFor="" className="font-nuni bg-white absolute px-[20px] text-[14px] left-[53px] top-[25px] transition-all">
