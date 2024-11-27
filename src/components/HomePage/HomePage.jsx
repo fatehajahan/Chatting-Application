@@ -16,7 +16,7 @@ const HomePage = () => {
             <img src={banner} alt="" className='mx-auto pb-[50px]' />
             <Link 
             to="/registration" 
-            className='bg-[#5F34F5] py-[20px] px-[100px] rounded-xl text-white font-nuni text-[25px] font-bold transition duration-500 hover:bg-[rgb(95,52,245,0.3)] hover:text-[#5F34F5] '>Get Started</Link>
+            className='bg-[#5F34F5] md:py-[20px] py-[10px] px-[50px] md:px-[100px] rounded-xl text-white font-nuni md:text-[25px] text-[18px] font-bold transition duration-500 hover:bg-[rgb(95,52,245,0.3)] hover:text-[#5F34F5] '>Get Started</Link>
           </div>
         </div>
       </div>
