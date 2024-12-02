@@ -3,9 +3,15 @@ import { FcGoogle } from "react-icons/fc";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import login from '../../assets/login.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+
 
 const Login = () => {
+  const auth = getAuth();
+  const navigate = useNavigate();
+
   const [logemail, setLogemail] = useState('')
   const [logemailErr, setLogemailErr] = useState('')
 
@@ -30,7 +36,18 @@ const Login = () => {
     if (!logpass) {
       setLogpassErr('Please Enter Your password')
     }
+    signInWithEmailAndPassword(auth, logemail, logpass)
+      .then(() => {
+        console.log('log in');
+        navigate('/profilepage')
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
   }
+
+
 
   return (
     <div className=''>
@@ -87,7 +104,6 @@ const Login = () => {
               onClick={logIn}
               className=' cursor-pointer md:py-[26px] py-[18px] w-full text-center mt-[55px] bg-[#5F34F5] font-open text-[20px] font-semibold  text-white rounded-[8px] md:mb-[44px] mb-[30px] '>Login to Continue
             </p>
-
             <Link to="/registration" className='font-open font-normal text-[13px] text-[#03014C] mt-[20px]'>Don’t have an account ? <span className='font-bold text-[#EA6C00] cursor-pointer'>Sign up</span></Link>
           </div>
         </div>

@@ -2,9 +2,15 @@ import React, { useState } from 'react'
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import reg from '../../assets/registration.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Comment } from 'react-loader-spinner'
 
 const Registration = () => {
+    const auth = getAuth();
+    const navigate = useNavigate();
     const [email, setEmail] = useState("")
     const [emailErr, setEmailErr] = useState("")
     const handleEmail = (e) => {
@@ -19,9 +25,12 @@ const Registration = () => {
         setFullNameErr("")
     }
 
+    const [success, setSuccess] = useState("")
+
     const [pass, setPass] = useState("")
     const [passErr, setPassErr] = useState("")
     const [showPass, setShowPass] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const handlePass = (e) => {
         setPass(e.target.value)
@@ -49,14 +58,59 @@ const Registration = () => {
                 setPassErr('Password must be at least 6 characters long and include a special character.')
             }
         }
+
+        if (
+            email &&
+            fullName &&
+            pass && 
+            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+        ) {
+            createUserWithEmailAndPassword(auth, email, pass)
+            sendEmailVerification(auth.currentUser)
+                .then(() => {
+                    setLoading(true)
+                    toast.success('Registration Successfully Done');
+                    setEmail("");
+                    setFullName("");
+                    setPass("");
+                    setTimeout(() => {
+                        navigate('/login')
+                    }, 1000);
+
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    if (errorCode.includes("auth/email-already-in-use")) {
+                        setEmailErr('this email is already taken');
+                    }
+                });
+
+        }
     }
 
     return (
         <div>
             <div className="md:flex justify-between items-center">
-                <div className="leftSection md:pl-[190px]">
+                <ToastContainer
+                    position="top-center"
+                    autoClose={1000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                    transition:Bounce />
+
+                <div className="leftSection md:pl-[190px] relative ">
                     <h1 className='font-nuni text-[#11175D] font-bold md:text-[34px] text-[29px] md:text-left text-center md:pt-0 pt-[20px] '>Get started with easily register</h1>
                     <p className=' font-nuni text-[rgb(0,0,0,0.5)] font-normal text-[20px] md:pt-[13px] pt-[8px] md:text-left text-center '>Free register and you can enjoy it</p>
+
+                    {success && (
+                        <p className='text-green-700 text-[15px] font-nuni font-bold absolute'>{success}</p>
+                    )}
 
                     <div className="inputs relative md:pt-[40px] pt-[20px] flex flex-col justify-center items-center md:items-start ">
 
@@ -119,13 +173,32 @@ const Registration = () => {
                         </div>
                     </div>
 
-                    <div className="btn mt-[60px] text-center md:w-[368px] md:ml-0  ">
-                        <div
-                            onClick={handleSubmit}
-                            className='py-[20px] bg-[#5F35F5] text-white font-bold transition duration-300 rounded-full md:w-full w-[320px] mx-auto hover:bg-[#11175D] hover:text-white cursor-pointer'>Sign up
-                        </div>
+                    <div className='text-center '>
+                        {
+                            loading ? <Comment
+                                visible={true}
+                                height="80"
+                                width="80"
+                                ariaLabel="comment-loading"
+                                wrapperStyle={{
+                                    marginLeft: "130px",
+                                }}
+                                wrapperClass="comment-wrapper"
+                                color="#fff"
+                                backgroundColor="#5F35F5"
+                            />
+                                : (
+                                    <div className="btn mt-[60px] text-center md:w-[368px] md:ml-0  ">
+                                        <div
+                                            onClick={handleSubmit}
+                                            className='py-[20px] bg-[#5F35F5] text-white font-bold transition duration-300 rounded-full md:w-full w-[320px] mx-auto hover:bg-[#11175D] hover:text-white cursor-pointer'>Sign up
+                                        </div>
 
-                        <Link to="/login" className=' block md:pt-[50px] pt-[30px]  font-open text-[#03014C] '>Already  have an account ? <span className='text-[#EA6C00] font-bold'>Sign In</span></Link>
+                                        <Link to="/login" className=' block md:pt-[50px] pt-[30px]  font-open text-[#03014C] '>Already  have an account ? <span className='text-[#EA6C00] font-bold'>Sign In</span></Link>
+                                    </div>
+                                )
+                        }
+
                     </div>
                 </div>
                 <div className="rightSection w-1/2">

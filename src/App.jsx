@@ -8,14 +8,17 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
+import firebaseConfig from './components/Authentication/firebase.config';
+import ProfilePage from './components/ProfilePage/ProfilePage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <>
-    <Route path="/" element={<HomePage />} />
-    <Route path="/registration" element={<Registration />} />
-    <Route path="/login" element={<Login />} />
-  </>
+    <Route>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/registration" element={<Registration />} />
+      <Route path="/login" element={<Login />} />
+      <Route path='/profilepage' element={<ProfilePage />} />
+    </Route>
   )
 );
 
