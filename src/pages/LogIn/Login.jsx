@@ -5,12 +5,14 @@ import { FaEyeSlash } from "react-icons/fa";
 import login from '../../assets/login.png'
 import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { toast, ToastContainer } from 'react-toastify';
 
 
 
 const Login = () => {
   const auth = getAuth();
   const navigate = useNavigate();
+  const [loginErr, setLoginErr] = useState("");
 
   const [logemail, setLogemail] = useState('')
   const [logemailErr, setLogemailErr] = useState('')
@@ -36,21 +38,42 @@ const Login = () => {
     if (!logpass) {
       setLogpassErr('Please Enter Your password')
     }
-    signInWithEmailAndPassword(auth, logemail, logpass)
-      .then(() => {
-        console.log('log in');
-        navigate('/profilepage')
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
+    if (logemail) {
+      signInWithEmailAndPassword(auth, logemail, logpass)
+        .then(() => {
+          console.log('log in done');
+          toast.success('login successfully done')
+          setTimeout(() => {
+            navigate('/profilepage')
+          }, 5000);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode);
+          if (errorCode.includes("auth/invalid-credential")) {
+            setLoginErr('Please give your Registered email id and Password...!!')
+          }
+        });
+    }
   }
 
 
 
   return (
-    <div className=''>
+    <div >
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition:Bounce />
       <div className="md:flex items-center ">
         <div className="md:w-1/2 md:pt-0 pt-[30px] flex flex-col items-center">
           <div className='title'>
@@ -59,11 +82,14 @@ const Login = () => {
             <div className='flex items-center border-2 border-[rgb(3,1,76,0.5)] md:w-[220px] w-[170px] md:py-[23px] py-[18px] justify-center rounded-md gap-x-[10px] cursor-pointer md:mx-0 mx-auto'>
               <FcGoogle className='md:text-[30px] text-[20px]' />
               <p className='md:text-[13px] text-[10px] font-open font-semibold text-[#03014C]'>Login with Google</p>
+
             </div>
           </div>
 
+
           <div className="inputs ">
-            <div className="email md:w-[370px] w-[295px] mx-auto relative pt-[32px]">
+            <div className='relative font-nuni text-[15px] font-semibold mt-[10px] '><p className='absolute  text-red-600 py-[8px] px-[8px] rounded-md'>{loginErr}</p></div>
+            <div className="email md:w-[370px] w-[295px] mx-auto relative pt-[70px]">
               <label htmlFor="" className='font-open font-normal text-[13px] text-[rgb(3,1,76,0.6)] '>
                 Email Addres
               </label>
@@ -102,8 +128,9 @@ const Login = () => {
           <div className="btns md:w-[370px] w-[295px] mx-auto">
             <p
               onClick={logIn}
-              className=' cursor-pointer md:py-[26px] py-[18px] w-full text-center mt-[55px] bg-[#5F34F5] font-open text-[20px] font-semibold  text-white rounded-[8px] md:mb-[44px] mb-[30px] '>Login to Continue
+              className=' cursor-pointer md:py-[26px] py-[18px] w-full text-center mt-[55px] bg-[#5F34F5] font-open text-[20px] font-semibold  text-white rounded-[8px] md:mb-[30px] mb-[30px] '>Login to Continue
             </p>
+            <Link to='/forgotpassword' className='block text-[#5F35F5] font-nuni font-semibold '>Forgot Password</Link>
             <Link to="/registration" className='font-open font-normal text-[13px] text-[#03014C] mt-[20px]'>Don’t have an account ? <span className='font-bold text-[#EA6C00] cursor-pointer'>Sign up</span></Link>
           </div>
         </div>

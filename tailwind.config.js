@@ -8,7 +8,8 @@ export default {
     extend: {
       fontFamily : {
         nuni : ["Nunito", "sans-serif"],
-        open : ["Open Sans", "sans-serif"]
+        open : ["Open Sans", "sans-serif"],
+        pops : ["Poppins", "sans-serif"]
       }
     },
     container: {

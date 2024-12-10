@@ -62,20 +62,17 @@ const Registration = () => {
         if (
             email &&
             fullName &&
-            pass && 
+            pass &&
             /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
         ) {
             createUserWithEmailAndPassword(auth, email, pass)
-            sendEmailVerification(auth.currentUser)
                 .then(() => {
+                    sendEmailVerification(auth.currentUser)
                     setLoading(true)
                     toast.success('Registration Successfully Done');
-                    setEmail("");
-                    setFullName("");
-                    setPass("");
                     setTimeout(() => {
                         navigate('/login')
-                    }, 1000);
+                    }, 5000);
 
                 })
                 .catch((error) => {
@@ -93,7 +90,7 @@ const Registration = () => {
             <div className="md:flex justify-between items-center">
                 <ToastContainer
                     position="top-center"
-                    autoClose={1000}
+                    autoClose={5000}
                     hideProgressBar={false}
                     newestOnTop={false}
                     closeOnClick
