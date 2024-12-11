@@ -10,9 +10,9 @@ const FriendsGroup = () => {
     return (
         <div className='flex flex-col gap-y-[43px]'>
             <div className="friends pt-[19px] pb-[82px] px-[22px] drop-shadow-xl bg-white rounded-2xl ">
-                <div className="title flex items-center relative">
+                <div className="title flex justify-between items-center ">
                     <h2 className='font-pops font-semibold text-[20px]'>Friends</h2>
-                    <CiMenuKebab className='absolute ml-[280px] cursor-pointer ' />
+                    <CiMenuKebab className=' ml-[280px] cursor-pointer ' />
                 </div>
 
                 <div className="ids">
@@ -67,9 +67,9 @@ const FriendsGroup = () => {
             </div>
 
             <div className="groups pt-[19px] pb-[70px] px-[22px] drop-shadow-xl bg-white rounded-2xl ">
-                <div className="title flex items-center relative">
+                <div className="title flex justify-between items-center ">
                     <h2 className='font-pops font-semibold text-[20px]'>My Groups</h2>
-                    <CiMenuKebab className='absolute ml-[280px] cursor-pointer ' />
+                    <CiMenuKebab className=' cursor-pointer ' />
                 </div>
 
                 <div className="ids">

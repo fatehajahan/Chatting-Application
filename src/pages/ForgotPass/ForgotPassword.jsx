@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
-import { toast ,ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 
 
@@ -29,10 +29,10 @@ const ForgotPassword = () => {
                 .catch((error) => {
                     const errorCode = error.code;
                     console.log(error);
-                    
-                    // if (errorCode.includes('auth/invalid-credential')) {
-                    //     toast.error('Please give your Registered Email id')
-                    // }
+
+                    if (errorCode.includes('auth/invalid-credential')) {
+                        toast.error('Please give your Registered Email id')
+                    }
                 });
         }
     }
@@ -50,7 +50,8 @@ const ForgotPassword = () => {
                 draggable
                 pauseOnHover
                 theme="light"
-                transition:Bounce />
+                transition:Bounce
+            />
             <div className='flex justify-center items-center h-screen'>
                 <div className='bg-white w-[500px] py-[20px] px-[20px] rounded-md text-center'>
                     <h1 className='text-[30px] font-nuni font-semibold'>Forgot Password</h1>

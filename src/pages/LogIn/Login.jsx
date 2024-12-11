@@ -6,11 +6,13 @@ import login from '../../assets/login.png'
 import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { toast, ToastContainer } from 'react-toastify';
-
-
+import { useDispatch } from 'react-redux';
+import { userLoginInfo } from '../../Slices/userSlice';
 
 const Login = () => {
   const auth = getAuth();
+  const dispatch = useDispatch()
+
   const navigate = useNavigate();
   const [loginErr, setLoginErr] = useState("");
 
@@ -40,7 +42,10 @@ const Login = () => {
     }
     if (logemail) {
       signInWithEmailAndPassword(auth, logemail, logpass)
-        .then(() => {
+        .then((user) => {
+          console.log(user.user);
+          dispatch(userLoginInfo(user.user))
+          localStorage.setItem("userLoginInfo", JSON.stringify(user.user));
           console.log('log in done');
           toast.success('login successfully done')
           setTimeout(() => {

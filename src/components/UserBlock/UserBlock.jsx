@@ -11,9 +11,9 @@ const UserBlock = () => {
     return (
         <div className=' flex flex-col gap-y-[36px]'>
             <div className="users pt-[19px] pb-[40px] px-[22px] drop-shadow-xl bg-white rounded-2xl ">
-                <div className="title flex items-center relative">
+                <div className="title flex justify-between items-center">
                     <h2 className='font-pops font-semibold text-[20px]'>User List</h2>
-                    <CiMenuKebab className='absolute ml-[280px] cursor-pointer ' />
+                    <CiMenuKebab className=' cursor-pointer ' />
                 </div>
 
                 <div className="ids">
@@ -89,10 +89,10 @@ const UserBlock = () => {
                 </div>
             </div>
 
-            <div className="users pt-[19px] pb-[20px] px-[22px] drop-shadow-xl bg-white rounded-2xl ">
-                <div className="title flex items-center relative">
+            <div className="blocked-users pt-[19px] pb-[20px] px-[22px] drop-shadow-xl bg-white rounded-2xl ">
+                <div className="title flex justify-between items-center">
                     <h2 className='font-pops font-semibold text-[20px]'>Blocked Users</h2>
-                    <CiMenuKebab className='absolute ml-[280px] cursor-pointer ' />
+                    <CiMenuKebab className='cursor-pointer ' />
                 </div>
 
                 <div className="ids">

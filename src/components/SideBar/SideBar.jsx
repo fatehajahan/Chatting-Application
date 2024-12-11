@@ -9,8 +9,8 @@ import { ImExit } from "react-icons/im";
 
 const SideBar = () => {
     return (
-        <div className='h-screen pl-[32px]'>
-            <div className='bg-[#5F35F5] py-[38px] px-[43px] rounded-[20px] flex flex-col items-center relative '>
+        <div className='pl-[32px]'>
+            <div className='bg-[#5F35F5] py-[38px] px-[43px] rounded-[20px] flex flex-col items-center '>
                 <img src={sideprofile} alt="" />
                 <div className="flex flex-col items-center gap-y-[83px]">
 
@@ -22,7 +22,7 @@ const SideBar = () => {
                 </div>
 
                 <div className='mt-[187px]'>
-                    <ImExit className='text-[46px] text-[#BAD1FF] transition duration-300 hover:bg-white hover:text-[#5F35F5] w-[110px] rounded-xl  top-[70%] left-[22px]'/>
+                    <ImExit className='text-[46px] text-[#BAD1FF] transition duration-300 hover:bg-white hover:text-[#5F35F5] w-[110px] rounded-xl  top-[70%] left-[22px] cursor-pointer'/>
                 </div>
             </div>
         </div>

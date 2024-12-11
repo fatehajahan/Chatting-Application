@@ -13,16 +13,16 @@ import tejas from '../../assets/tejas.png'
 const GroupList = () => {
     return (
         <div>
-            <div className="search flex items-center relative">
+            <div className="search flex justify-between items-center relative">
                 <FaSearch className='absolute ml-[23px] z-10' />
                 <CiMenuKebab className='absolute ml-[380px] z-10 cursor-pointer' />
                 <input type="search" placeholder='search' className='py-[17px] pl-[78px] w-[427px] rounded-[20px] drop-shadow-md' />
             </div>
 
             <div className="grouplist py-[21px] px-[22px] mt-[43px] drop-shadow-xl bg-white rounded-2xl ">
-                <div className="title flex items-center relative">
+                <div className="title flex items-center justify-between ">
                     <h2 className='font-pops font-semibold text-[20px]'>Groups List</h2>
-                    <CiMenuKebab className='absolute ml-[360px] cursor-pointer ' />
+                    <CiMenuKebab className=' cursor-pointer ' />
                 </div>
 
                 <div className="ids">
@@ -71,9 +71,9 @@ const GroupList = () => {
             </div>
 
             <div className="frndreq py-[21px] px-[22px] mt-[30px] drop-shadow-xl bg-white rounded-2xl ">
-                <div className="title flex items-center relative">
+                <div className="title flex justify-between items-center ">
                     <h2 className='font-pops font-semibold text-[20px]'>Friend  Request</h2>
-                    <CiMenuKebab className='absolute ml-[360px] cursor-pointer ' />
+                    <CiMenuKebab className=' cursor-pointer ' />
                 </div>
 
                 <div className="ids">
