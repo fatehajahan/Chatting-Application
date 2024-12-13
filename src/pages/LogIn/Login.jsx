@@ -4,13 +4,14 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import login from '../../assets/login.png'
 import { Link, useNavigate } from 'react-router-dom';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 import { toast, ToastContainer } from 'react-toastify';
-import { useDispatch } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
 import { userLoginInfo } from '../../Slices/userSlice';
 
 const Login = () => {
   const auth = getAuth();
+  const provider = new GoogleAuthProvider();
   const dispatch = useDispatch()
 
   const navigate = useNavigate();
@@ -31,6 +32,27 @@ const Login = () => {
   const logPass = (e) => {
     setLogpass(e.target.value)
     setLogpassErr('')
+  }
+
+
+  const googleLogin = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+
+        toast.success('Logged in with Google successfully');
+        setTimeout(() => {
+          navigate('/profilepage');
+        }, 2000);
+
+      }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.customData.email;
+        const credential = GoogleAuthProvider.credentialFromError(error);
+      });
   }
 
   const logIn = () => {
@@ -84,10 +106,11 @@ const Login = () => {
           <div className='title'>
             <h1 className='font-open md:text-[33px] text-[25px] text-[#03014C] font-bold pb-[29px]'>Login to your account!</h1>
 
-            <div className='flex items-center border-2 border-[rgb(3,1,76,0.5)] md:w-[220px] w-[170px] md:py-[23px] py-[18px] justify-center rounded-md gap-x-[10px] cursor-pointer md:mx-0 mx-auto'>
+            <div
+              onClick={googleLogin}
+              className='flex items-center border-2 border-[rgb(3,1,76,0.5)] md:w-[220px] w-[170px] md:py-[23px] py-[18px] justify-center rounded-md gap-x-[10px] cursor-pointer md:mx-0 mx-auto'>
               <FcGoogle className='md:text-[30px] text-[20px]' />
               <p className='md:text-[13px] text-[10px] font-open font-semibold text-[#03014C]'>Login with Google</p>
-
             </div>
           </div>
 
