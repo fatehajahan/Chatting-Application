@@ -9,7 +9,7 @@ import tejas from '../../assets/tejas.png'
 
 const UserBlock = () => {
     return (
-        <div className=' flex flex-col gap-y-[36px]'>
+        <div className=' flex flex-col gap-y-[36px] p-[20px]'>
             <div className="users pt-[19px] pb-[40px] px-[22px] drop-shadow-xl bg-white rounded-2xl ">
                 <div className="title flex justify-between items-center">
                     <h2 className='font-pops font-semibold text-[20px]'>User List</h2>
@@ -26,7 +26,7 @@ const UserBlock = () => {
                             </div>
                         </div>
 
-                        <div className="joinbtn bg-[#5F35F5] px-[8px] rounded-[5px] cursor-pointer">
+                        <div className="joinbtn bg-maroon px-[8px] rounded-[5px] cursor-pointer">
                             <h4 className='text-[14px] text-white font-pops font-semibold '>+</h4>
                         </div>
                     </div>
@@ -40,7 +40,7 @@ const UserBlock = () => {
                             </div>
                         </div>
 
-                        <div className="joinbtn bg-[#5F35F5] px-[8px] rounded-[5px] cursor-pointer">
+                        <div className="joinbtn bg-maroon px-[8px] rounded-[5px] cursor-pointer">
                             <h4 className='text-[14px] text-white font-pops font-semibold '>+</h4>
                         </div>
                     </div>
@@ -54,7 +54,7 @@ const UserBlock = () => {
                             </div>
                         </div>
 
-                        <div className="joinbtn bg-[#5F35F5] px-[8px] rounded-[5px] cursor-pointer">
+                        <div className="joinbtn bg-maroon px-[8px] rounded-[5px] cursor-pointer">
                             <h4 className='text-[14px] text-white font-pops font-semibold '>+</h4>
                         </div>
                     </div>
@@ -68,7 +68,7 @@ const UserBlock = () => {
                             </div>
                         </div>
 
-                        <div className="joinbtn bg-[#5F35F5] px-[8px] rounded-[5px] cursor-pointer">
+                        <div className="joinbtn bg-maroon px-[8px] rounded-[5px] cursor-pointer">
                             <h4 className='text-[14px] text-white font-pops font-semibold '>+</h4>
                         </div>
                     </div>
@@ -82,7 +82,7 @@ const UserBlock = () => {
                             </div>
                         </div>
 
-                        <div className="joinbtn bg-[#5F35F5] px-[8px] rounded-[5px] cursor-pointer">
+                        <div className="joinbtn bg-maroon px-[8px] rounded-[5px] cursor-pointer">
                             <h4 className='text-[14px] text-white font-pops font-semibold '>+</h4>
                         </div>
                     </div>
@@ -105,7 +105,7 @@ const UserBlock = () => {
                             </div>
                         </div>
 
-                        <div className="joinbtn bg-[#5F35F5] px-[8px] rounded-[5px] cursor-pointer">
+                        <div className="joinbtn bg-maroon px-[8px] rounded-[5px] cursor-pointer">
                             <h4 className='text-[14px] text-white font-pops font-semibold '>unblock</h4>
                         </div>
                     </div>
@@ -119,7 +119,7 @@ const UserBlock = () => {
                             </div>
                         </div>
 
-                        <div className="joinbtn bg-[#5F35F5] px-[8px] rounded-[5px] cursor-pointer">
+                        <div className="joinbtn bg-maroon px-[8px] rounded-[5px] cursor-pointer">
                             <h4 className='text-[14px] text-white font-pops font-semibold '>unblock</h4>
                         </div>
                     </div>
@@ -133,7 +133,7 @@ const UserBlock = () => {
                             </div>
                         </div>
 
-                        <div className="joinbtn bg-[#5F35F5] px-[8px] rounded-[5px] cursor-pointer">
+                        <div className="joinbtn bg-maroon px-[8px] rounded-[5px] cursor-pointer">
                             <h4 className='text-[14px] text-white font-pops font-semibold '>unblock</h4>
                         </div>
                     </div>
@@ -147,7 +147,7 @@ const UserBlock = () => {
                             </div>
                         </div>
 
-                        <div className="joinbtn bg-[#5F35F5] px-[8px] rounded-[5px] cursor-pointer">
+                        <div className="joinbtn bg-maroon px-[8px] rounded-[5px] cursor-pointer">
                             <h4 className='text-[14px] text-white font-pops font-semibold '>unblock</h4>
                         </div>
                     </div>
@@ -161,7 +161,7 @@ const UserBlock = () => {
                             </div>
                         </div>
 
-                        <div className="joinbtn bg-[#5F35F5] px-[8px] rounded-[5px] cursor-pointer">
+                        <div className="joinbtn bg-maroon px-[8px] rounded-[5px] cursor-pointer">
                             <h4 className='text-[14px] text-white font-pops font-semibold '>unblock</h4>
                         </div>
                     </div>

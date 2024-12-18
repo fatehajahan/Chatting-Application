@@ -8,7 +8,7 @@ import tejas from '../../assets/tejas.png'
 
 const FriendsGroup = () => {
     return (
-        <div className='flex flex-col gap-y-[43px]'>
+        <div className='flex flex-col gap-y-[43px] p-[20px]'>
             <div className="friends pt-[19px] pb-[82px] px-[22px] drop-shadow-xl bg-white rounded-2xl ">
                 <div className="title flex justify-between items-center ">
                     <h2 className='font-pops font-semibold text-[20px]'>Friends</h2>

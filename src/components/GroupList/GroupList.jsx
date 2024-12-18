@@ -12,8 +12,8 @@ import tejas from '../../assets/tejas.png'
 
 const GroupList = () => {
     return (
-        <div>
-            <div className="search flex justify-between items-center relative">
+        <div className='p-[20px]'>
+            <div className="search flex justify-between items-center relative ">
                 <FaSearch className='absolute ml-[23px] z-10' />
                 <CiMenuKebab className='absolute ml-[380px] z-10 cursor-pointer' />
                 <input type="search" placeholder='search' className='py-[17px] pl-[78px] w-[427px] rounded-[20px] drop-shadow-md' />
@@ -35,7 +35,7 @@ const GroupList = () => {
                             </div>
                         </div>
 
-                        <div className="joinbtn bg-[#5F35F5] px-[22px] rounded-[5px] cursor-pointer">
+                        <div className="joinbtn bg-maroon px-[22px] rounded-[5px] cursor-pointer">
                             <h4 className='text-[20px] text-white font-pops font-semibold '>Join</h4>
                         </div>
                     </div>
@@ -49,7 +49,7 @@ const GroupList = () => {
                             </div>
                         </div>
 
-                        <div className="joinbtn bg-[#5F35F5] px-[22px] rounded-[5px] cursor-pointer">
+                        <div className="joinbtn bg-maroon px-[22px] rounded-[5px] cursor-pointer">
                             <h4 className='text-[20px] text-white font-pops font-semibold '>Join</h4>
                         </div>
                     </div>
@@ -63,7 +63,7 @@ const GroupList = () => {
                             </div>
                         </div>
 
-                        <div className="joinbtn bg-[#5F35F5] px-[22px] rounded-[5px] cursor-pointer">
+                        <div className="joinbtn bg-maroon px-[22px] rounded-[5px] cursor-pointer">
                             <h4 className='text-[20px] text-white font-pops font-semibold '>Join</h4>
                         </div>
                     </div>
@@ -86,7 +86,7 @@ const GroupList = () => {
                             </div>
                         </div>
 
-                        <div className="joinbtn bg-[#5F35F5] px-[22px] rounded-[5px] cursor-pointer">
+                        <div className="joinbtn bg-maroon px-[22px] rounded-[5px] cursor-pointer">
                             <h4 className='text-[20px] text-white font-pops font-semibold '>Join</h4>
                         </div>
                     </div>
@@ -100,7 +100,7 @@ const GroupList = () => {
                             </div>
                         </div>
 
-                        <div className="joinbtn bg-[#5F35F5] px-[22px] rounded-[5px] cursor-pointer">
+                        <div className="joinbtn bg-maroon px-[22px] rounded-[5px] cursor-pointer">
                             <h4 className='text-[20px] text-white font-pops font-semibold '>Join</h4>
                         </div>
                     </div>
@@ -114,7 +114,7 @@ const GroupList = () => {
                             </div>
                         </div>
 
-                        <div className="joinbtn bg-[#5F35F5] px-[22px] rounded-[5px] cursor-pointer">
+                        <div className="joinbtn bg-maroon px-[22px] rounded-[5px] cursor-pointer">
                             <h4 className='text-[20px] text-white font-pops font-semibold '>Join</h4>
                         </div>
                     </div>
@@ -128,7 +128,7 @@ const GroupList = () => {
                             </div>
                         </div>
 
-                        <div className="joinbtn bg-[#5F35F5] px-[22px] rounded-[5px] cursor-pointer">
+                        <div className="joinbtn bg-maroon px-[22px] rounded-[5px] cursor-pointer">
                             <h4 className='text-[20px] text-white font-pops font-semibold '>Join</h4>
                         </div>
                     </div>

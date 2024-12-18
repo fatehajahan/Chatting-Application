@@ -26,6 +26,15 @@ export default {
         '2xl': '1320px',
       },
     },    
+    backgroundColor :{
+      white: '#fff',
+      maroon : '#A294F9' ,
+    },
+    textColor : {
+      white : '#fff',
+      maroon : '#A294F9',
+      black : '#000' 
+    }
   },
   plugins: [],
 }

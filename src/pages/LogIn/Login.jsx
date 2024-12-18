@@ -104,7 +104,7 @@ const Login = () => {
       <div className="md:flex items-center ">
         <div className="md:w-1/2 md:pt-0 pt-[30px] flex flex-col items-center">
           <div className='title'>
-            <h1 className='font-open md:text-[33px] text-[25px] text-[#03014C] font-bold pb-[29px]'>Login to your account!</h1>
+            <h1 className='font-open md:text-[33px] text-[25px] text-maroon font-bold pb-[29px]'>Login to your account!</h1>
 
             <div
               onClick={googleLogin}
@@ -156,9 +156,9 @@ const Login = () => {
           <div className="btns md:w-[370px] w-[295px] mx-auto">
             <p
               onClick={logIn}
-              className=' cursor-pointer md:py-[26px] py-[18px] w-full text-center mt-[55px] bg-[#5F34F5] font-open text-[20px] font-semibold  text-white rounded-[8px] md:mb-[30px] mb-[30px] '>Login to Continue
+              className=' cursor-pointer md:py-[26px] py-[18px] w-full text-center mt-[55px] bg-maroon font-open text-[20px] font-semibold  text-white rounded-[8px] md:mb-[30px] mb-[30px] '>Login to Continue
             </p>
-            <Link to='/forgotpassword' className='block text-[#5F35F5] font-nuni font-semibold '>Forgot Password</Link>
+            <Link to='/forgotpassword' className='block text-maroon font-nuni font-semibold '>Forgot Password</Link>
             <Link to="/registration" className='font-open font-normal text-[13px] text-[#03014C] mt-[20px]'>Don’t have an account ? <span className='font-bold text-[#EA6C00] cursor-pointer'>Sign up</span></Link>
           </div>
         </div>

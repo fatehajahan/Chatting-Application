@@ -35,9 +35,9 @@ const ProfilePage = () => {
     <div className=''>
       {
         verify ? (
-          <>
-            <div className='flex gap-x-[20px] p-[20px]'>
-              <div className='w-1/4 max-h-svh'>
+          <div className=''> 
+            <div className='flex gap-x-[20px] justify-between '>
+              <div className='w-[9%] h-[954px]'>
                 <SideBar />
               </div>
 
@@ -53,11 +53,11 @@ const ProfilePage = () => {
                 <UserBlock />
               </div>
             </div>
-          </>
+          </div>
         ) : (
           <div>
             <h2 className='text-[50px] font-nuni font-bold text-center '>Please Verify Your Email.</h2> 
-            <Link to= "/login" className='text-center text-[20px] font-bold bg-[#5F34F5] text-white font-nuni py-[20px] px-[40px] rounded-md mx-auto flex justify-center w-[300px] transition hover:bg-[rgb(95,52,245,0.8)] mt-[20px] '>Go Back to Login Page</Link>
+            <Link to= "/login" className='text-center text-[20px] font-bold bg-maroon text-white font-nuni py-[20px] px-[40px] rounded-md mx-auto flex justify-center w-[300px] transition hover:bg-maroon hover:bg-opacity-[0.5] mt-[20px] '>Go Back to Login Page</Link>
           </div>
         )
       }

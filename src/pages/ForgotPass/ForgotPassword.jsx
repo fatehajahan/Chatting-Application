@@ -38,7 +38,7 @@ const ForgotPassword = () => {
     }
 
     return (
-        <div className='bg-[#5F35F5] w-full h-screen '>
+        <div className='bg-maroon w-full h-screen '>
             <ToastContainer
                 position="top-center"
                 autoClose={5000}
@@ -54,28 +54,28 @@ const ForgotPassword = () => {
             />
             <div className='flex justify-center items-center h-screen'>
                 <div className='bg-white w-[500px] py-[20px] px-[20px] rounded-md text-center'>
-                    <h1 className='text-[30px] font-nuni font-semibold'>Forgot Password</h1>
+                    <h1 className='text-[30px] font-nuni font-semibold text-maroon'>Forgot Password</h1>
 
                     <div className="email md:w-[370px] w-[295px] mx-auto relative pt-[70px]">
-                        <label htmlFor="" className='font-open font-normal text-[13px] text-[rgb(3,1,76,0.6)] '>
+                        <label htmlFor="" className='font-open font-normal text-[13px] text-maroon '>
                             Email Addres
                         </label>
                         <input
                             onChange={Email}
                             type="email"
                             placeholder='Youraddres@email.com'
-                            className='py-[16px] w-full border-[rgb(3,1,76,0.3)] border-b-[3px] block focus:border-[#03014C] focus:outline-none placeholder:text-[#03014C] placeholder:font-open placeholder:font-semibold ' />
+                            className='py-[16px] w-full border-maroon border-opacity-[0.5] border-b-[3px] block focus:border-[#03014C] focus:outline-none placeholder:text-maroon placeholder:font-open placeholder:font-semibold ' />
                         <p className='text-red-500 absolute font-nuni font-medium'>{emailErr}</p>
                     </div>
 
                     <div className="flex gap-x-[20px]">
                         <p
                             onClick={setPassword}
-                            className=' cursor-pointer py-[15px] w-full text-center mt-[55px] bg-[#5F34F5] font-open text-[20px] font-semibold text-white rounded-[8px] transition duration-300 hover:bg-[rgb(95,52,245,0.3)] hover:text-[#5F34F5] '>Reset
+                            className=' cursor-pointer py-[15px] w-full text-center mt-[55px] bg-maroon font-open text-[20px] font-semibold text-white rounded-[8px] transition duration-300 hover:bg-maroon hover:bg-opacity-[0.5] hover:text-maroon '>Reset
                         </p>
 
                         <Link to='/login'
-                            className=' cursor-pointer py-[15px] w-full text-center mt-[55px] bg-[#5F34F5] font-open text-[20px] font-semibold text-white rounded-[8px] transition duration-300 hover:bg-[rgb(95,52,245,0.3)] hover:text-[#5F34F5] '> Back to Log in page
+                            className=' cursor-pointer py-[15px] w-full text-center mt-[55px] bg-maroon font-open text-[20px] font-semibold text-white rounded-[8px] transition duration-300 hover:bg-maroon hover:bg-opacity-[0.5] hover:text-maroon '> Back to Log in page
                         </Link>
                     </div>
                 </div>

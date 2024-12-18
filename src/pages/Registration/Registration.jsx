@@ -59,12 +59,7 @@ const Registration = () => {
             }
         }
 
-        if (
-            email &&
-            fullName &&
-            pass &&
-            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
-        ) {
+        if (/^(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$/.test(pass, email)) {
             createUserWithEmailAndPassword(auth, email, pass)
                 .then(() => {
                     sendEmailVerification(auth.currentUser)
@@ -102,7 +97,7 @@ const Registration = () => {
                     transition:Bounce />
 
                 <div className="leftSection md:pl-[190px] relative ">
-                    <h1 className='font-nuni text-[#11175D] font-bold md:text-[34px] text-[29px] md:text-left text-center md:pt-0 pt-[20px] '>Get started with easily register</h1>
+                    <h1 className='font-nuni text-maroon font-bold md:text-[34px] text-[29px] md:text-left text-center md:pt-0 pt-[20px] '>Get started with easily register</h1>
                     <p className=' font-nuni text-[rgb(0,0,0,0.5)] font-normal text-[20px] md:pt-[13px] pt-[8px] md:text-left text-center '>Free register and you can enjoy it</p>
 
                     {success && (
@@ -118,8 +113,8 @@ const Registration = () => {
                             </label>
                             <input type="email"
                                 onChange={handleEmail}
-                                placeholder='fatehajahan2002@gmail.com'
-                                className='block md:py-[26px] py-[18px] px-[30px] md:px-[45px] placeholder-[#11175D] mx-auto md:w-full w-[300px]  border-2 border-[rgb(17,23,93,0.5)] rounded-md '
+                                placeholder='youremail@gmai.com'
+                                className='block md:py-[26px] py-[18px] px-[30px] md:px-[45px] placeholder-maroon mx-auto md:w-full w-[300px]  border-2 border-[rgb(17,23,93,0.5)] rounded-md  placeholder:text-maroon '
                             />
 
                             <p className='text-red-500 absolute font-nuni font-medium md:pl-0 pl-[8px]'>{emailErr}</p>
@@ -136,7 +131,7 @@ const Registration = () => {
                                     type="text"
                                     onChange={handleFullName}
                                     placeholder='Fateha Jahan'
-                                    className='block md:py-[26px] py-[18px] px-[30px] md:px-[45px] placeholder-[#11175D] w-[300px] md:w-full mx-auto border-2 border-[rgb(17,23,93,0.5)] rounded-md '
+                                    className='block md:py-[26px] py-[18px] px-[30px] md:px-[45px] placeholder-maroon w-[300px] md:w-full mx-auto border-2 border-[rgb(17,23,93,0.5)] rounded-md '
                                 />
                                 <p className='text-red-500 absolute font-nuni font-medium md:pl-0 pl-[8px]'>{fullNameErr}</p>
                             </div>
@@ -163,7 +158,7 @@ const Registration = () => {
                                     type={`${showPass ? "text" : "password"}`}
                                     onChange={handlePass}
                                     placeholder='. . . .'
-                                    className='block md:py-[26px] py-[18px] px-[30px] md:px-[45px] placeholder-[#11175D] mx-auto md:w-full w-[300px] border-2 border-[rgb(17,23,93,0.5)] rounded-md '
+                                    className='block md:py-[26px] py-[18px] px-[30px] md:px-[45px] placeholder-maroon mx-auto md:w-full w-[300px] border-2 border-[rgb(17,23,93,0.5)] rounded-md '
                                 />
                                 <p className='text-red-500 absolute font-nuni font-medium md:pl-0 pl-[8px] '>{passErr}</p>
                             </div>
@@ -188,7 +183,7 @@ const Registration = () => {
                                     <div className="btn mt-[60px] text-center md:w-[368px] md:ml-0  ">
                                         <div
                                             onClick={handleSubmit}
-                                            className='py-[20px] bg-[#5F35F5] text-white font-bold transition duration-300 rounded-full md:w-full w-[320px] mx-auto hover:bg-[#11175D] hover:text-white cursor-pointer'>Sign up
+                                            className='py-[20px] bg-maroon text-white font-bold transition duration-300 rounded-full md:w-full w-[320px] mx-auto hover:bg-maroon hover:text-white cursor-pointer'>Sign up
                                         </div>
 
                                         <Link to="/login" className=' block md:pt-[50px] pt-[30px]  font-open text-[#03014C] '>Already  have an account ? <span className='text-[#EA6C00] font-bold'>Sign In</span></Link>
