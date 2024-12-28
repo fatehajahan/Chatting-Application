@@ -126,7 +126,7 @@ const Login = () => {
                 type="email"
                 placeholder='Youraddres@email.com'
                 className='py-[16px] w-full border-[rgb(3,1,76,0.3)] border-b-[3px] block focus:border-[#03014C] focus:outline-none placeholder:text-[#03014C] placeholder:font-open placeholder:font-semibold ' />
-              <p className='text-red-500 absolute font-nuni font-medium'>{logemailErr}</p>
+              <p className='text-red absolute font-nuni font-medium'>{logemailErr}</p>
             </div>
 
             <div className="password md:w-[370px] w-[295px] mx-auto relative mt-[60px]">
@@ -149,7 +149,7 @@ const Login = () => {
                 type={`${logshowpass ? "text" : "password"}`}
                 placeholder='Enter your password'
                 className='py-[16px] w-full border-[rgb(3,1,76,0.3)] border-b-[3px] block focus:border-[#03014C] focus:outline-none placeholder:text-[#03014C] placeholder:font-open placeholder:font-semibold bg-transparent ' />
-              <p className='text-red-500 absolute font-nuni font-medium' >{logpasserr}</p>
+              <p className='text-red absolute font-nuni font-medium' >{logpasserr}</p>
             </div>
           </div>
 

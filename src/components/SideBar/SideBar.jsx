@@ -10,8 +10,10 @@ import { Link } from 'react-router-dom';
 import { FaCloudUploadAlt } from "react-icons/fa";
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
+import { getDownloadURL, getStorage, ref, uploadString } from "firebase/storage";
 
 const SideBar = () => {
+    const storage = getStorage();
     const [upload, setUpload] = useState(false)
     const handleUpload = () => {
         console.log('dssd');
@@ -82,15 +84,46 @@ const SideBar = () => {
         reader.readAsDataURL(files[0]);
     };
 
-    const handleRemove = () =>{
+    const handleRemove = () => {
         setImage(false)
     }
+
+    const [profile, setProfile] = useState(null)
+    const uploadImage = (event) => {
+        if (typeof cropperRef.current?.cropper !== "undefined") {
+            setCropData(cropperRef.current?.cropper.getCroppedCanvas().toDataURL());
+            setProfile(cropperRef.current?.cropper.getCroppedCanvas().toDataURL());
+            setUpload(false);
+        } else {
+            alert('Please crop the image first.');
+        }
+    };
+    // const getCropData = () => {
+    //     if (typeof cropperRef.current?.cropper !== "undefined") {
+    //         setCropData(cropperRef.current?.cropper.getCroppedCanvas().toDataURL());
+    //     }
+    //     const storageRef = ref(storage, 'some-child');
+    //     const message4 = cropperRef.current?.cropper.getCroppedCanvas().toDataURL();
+    //     uploadString(storageRef, message4, 'data_url').then((snapshot) => {
+    //         console.log('Uploaded a data_url string!');
+    //         getDownloadURL(storageRef).then((downloadURL) => {
+    //             console.log('File available at', downloadURL);
+    //         });
+    //     });
+    // };
+    // console.log(cropData);
+
     return (
         <div>
             <div className='p-[20px]'>
                 <div className='bg-maroon py-[38px] px-[40px] rounded-[20px] mx-auto '>
                     <div className='relative  w-[100px] h-[100px] mb-[60px] mx-auto '>
-                        <img src={sideprofile} alt="" className=' rounded-full w-[100px] h-[100px]' />
+
+                        {
+                            profile
+                                ? <img src={profile} alt="" className=' rounded-full w-[100px] h-[100px]' />
+                                : <img src={sideprofile} alt="" className=' rounded-full w-[100px] h-[100px]' />
+                        }
                         <div onClick={handleUpload} className='w-[100px] h-[100px] bg-[rgb(0,0,0)] opacity-0 transition duration-300 absolute top-0 left-0 rounded-full hover:opacity-[0.7] flex justify-center items-center cursor-pointer'>
                             <FaCloudUploadAlt className='text-white text-[25px] opacity-[1]' />
                         </div>
@@ -181,6 +214,7 @@ const SideBar = () => {
                                         <img src={defaultimage} alt="" className='mx-auto' />
                                     </div>
                             }
+
                             <label htmlFor="" className='font-open font-normal text-[20px] text-black '>
                                 Choose a Photo
                             </label>
@@ -213,6 +247,7 @@ const SideBar = () => {
 
                         <div className="flex gap-x-[20px]">
                             <p
+                                onClick={uploadImage}
                                 className=' cursor-pointer py-[15px] w-full text-center mt-[55px] bg-maroon font-open text-[20px] font-semibold text-white rounded-[8px] transition duration-300 hover:bg-maroon hover:bg-opacity-[0.5] hover:text-maroon '>Upload
                             </p>
 

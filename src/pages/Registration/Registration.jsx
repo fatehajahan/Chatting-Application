@@ -117,7 +117,7 @@ const Registration = () => {
                                 className='block md:py-[26px] py-[18px] px-[30px] md:px-[45px] placeholder-maroon mx-auto md:w-full w-[300px]  border-2 border-[rgb(17,23,93,0.5)] rounded-md  placeholder:text-maroon '
                             />
 
-                            <p className='text-red-500 absolute font-nuni font-medium md:pl-0 pl-[8px]'>{emailErr}</p>
+                            <p className='text-red absolute font-nuni font-medium md:pl-0 pl-[8px]'>{emailErr}</p>
                         </div>
 
                         {/* Name */}
@@ -133,7 +133,7 @@ const Registration = () => {
                                     placeholder='Fateha Jahan'
                                     className='block md:py-[26px] py-[18px] px-[30px] md:px-[45px] placeholder-maroon w-[300px] md:w-full mx-auto border-2 border-[rgb(17,23,93,0.5)] rounded-md '
                                 />
-                                <p className='text-red-500 absolute font-nuni font-medium md:pl-0 pl-[8px]'>{fullNameErr}</p>
+                                <p className='text-red absolute font-nuni font-medium md:pl-0 pl-[8px]'>{fullNameErr}</p>
                             </div>
                         </div>
 
@@ -160,7 +160,7 @@ const Registration = () => {
                                     placeholder='. . . .'
                                     className='block md:py-[26px] py-[18px] px-[30px] md:px-[45px] placeholder-maroon mx-auto md:w-full w-[300px] border-2 border-[rgb(17,23,93,0.5)] rounded-md '
                                 />
-                                <p className='text-red-500 absolute font-nuni font-medium md:pl-0 pl-[8px] '>{passErr}</p>
+                                <p className='text-red absolute font-nuni font-medium md:pl-0 pl-[8px] '>{passErr}</p>
                             </div>
                         </div>
                     </div>

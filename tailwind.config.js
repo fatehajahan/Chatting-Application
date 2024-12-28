@@ -33,7 +33,8 @@ export default {
     textColor : {
       white : '#fff',
       maroon : '#A294F9',
-      black : '#000' 
+      black : '#000',
+      red : '#FF2929' 
     }
   },
   plugins: [],

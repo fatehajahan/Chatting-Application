@@ -65,7 +65,7 @@ const ForgotPassword = () => {
                             type="email"
                             placeholder='Youraddres@email.com'
                             className='py-[16px] w-full border-maroon border-opacity-[0.5] border-b-[3px] block focus:border-[#03014C] focus:outline-none placeholder:text-maroon placeholder:font-open placeholder:font-semibold ' />
-                        <p className='text-red-500 absolute font-nuni font-medium'>{emailErr}</p>
+                        <p className='text-red absolute font-nuni font-medium'>{emailErr}</p>
                     </div>
 
                     <div className="flex gap-x-[20px]">
