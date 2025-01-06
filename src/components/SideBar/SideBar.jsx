@@ -6,7 +6,7 @@ import { AiOutlineMessage } from "react-icons/ai";
 import { IoIosSettings } from "react-icons/io";
 import { CiBellOn } from "react-icons/ci";
 import { ImExit } from "react-icons/im";
-import { Link } from 'react-router-dom';
+import { data, Link } from 'react-router-dom';
 import { FaCloudUploadAlt } from "react-icons/fa";
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
@@ -117,8 +117,7 @@ const SideBar = () => {
         <div>
             <div className='p-[20px]'>
                 <div className='bg-maroon py-[38px] px-[40px] rounded-[20px] mx-auto '>
-                    <div className='relative  w-[100px] h-[100px] mb-[60px] mx-auto '>
-
+                    <div className='relative  w-[100px] h-[100px]  mx-auto '>
                         {
                             profile
                                 ? <img src={profile} alt="" className=' rounded-full w-[100px] h-[100px]' />
@@ -128,7 +127,8 @@ const SideBar = () => {
                             <FaCloudUploadAlt className='text-white text-[25px] opacity-[1]' />
                         </div>
                     </div>
-                    <div className="flex flex-col items-center gap-y-[56px] ">
+                    <p className='text-center'></p>
+                    <div className="flex flex-col items-center gap-y-[56px] mt-[60px] ">
 
                         <div className='home'>
                             <Link to='/profilepage' >

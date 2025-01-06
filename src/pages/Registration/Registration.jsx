@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import reg from '../../assets/registration.png'
 import { Link, useNavigate } from 'react-router-dom';
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from "firebase/auth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Comment } from 'react-loader-spinner'
+import { getDatabase, ref, set } from "firebase/database";
+
 
 const Registration = () => {
     const auth = getAuth();
+    const db = getDatabase();
     const navigate = useNavigate();
     const [email, setEmail] = useState("")
     const [emailErr, setEmailErr] = useState("")
@@ -37,9 +40,6 @@ const Registration = () => {
         setPassErr("")
     }
 
-
-
-
     const handleSubmit = () => {
         if (!email) {
             setEmailErr('Please give Your Email Id');
@@ -60,15 +60,25 @@ const Registration = () => {
         }
 
         if (/^(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$/.test(pass, email)) {
-            createUserWithEmailAndPassword(auth, email, pass)
-                .then(() => {
-                    sendEmailVerification(auth.currentUser)
-                    setLoading(true)
-                    toast.success('Registration Successfully Done');
-                    setTimeout(() => {
-                        navigate('/login')
-                    }, 5000);
-
+            createUserWithEmailAndPassword(auth, email, pass, fullName)
+                .then((user) => {
+                    updateProfile(auth.currentUser, {
+                        displayName: fullName, photoURL: "https://example.com/jane-q-user/profile.jpg"
+                    })
+                        .then(() => {
+                            console.log(user);
+                            sendEmailVerification(auth.currentUser)
+                            setLoading(true)
+                            toast.success('Registration Successfully Done');
+                            setTimeout(() => {
+                                navigate('/login')
+                            }, 5000)
+                        }).then(() => {
+                            set(ref(db, 'users/' + user.user.uid), {
+                                username: user.user.displayName,
+                                email: user.user.email
+                            });
+                        })
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -76,7 +86,6 @@ const Registration = () => {
                         setEmailErr('this email is already taken');
                     }
                 });
-
         }
     }
 

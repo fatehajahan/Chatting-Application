@@ -10,6 +10,10 @@ export default {
         nuni : ["Nunito", "sans-serif"],
         open : ["Open Sans", "sans-serif"],
         pops : ["Poppins", "sans-serif"]
+      },
+      colors :{
+        white: '#fff',
+        maroon : '#A294F9' ,
       }
     },
     container: {
@@ -26,16 +30,7 @@ export default {
         '2xl': '1320px',
       },
     },    
-    backgroundColor :{
-      white: '#fff',
-      maroon : '#A294F9' ,
-    },
-    textColor : {
-      white : '#fff',
-      maroon : '#A294F9',
-      black : '#000',
-      red : '#FF2929' 
-    }
+    
   },
   plugins: [],
 }

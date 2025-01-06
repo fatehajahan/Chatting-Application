@@ -23,7 +23,6 @@ const ProfilePage = () => {
 
   onAuthStateChanged(auth, (user) => {
     console.log(user, 'dfdf');
-    
     if (user.emailVerified) {
       setVerify(true)
     } else {
